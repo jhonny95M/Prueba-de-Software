@@ -50,6 +50,47 @@ public class Caso02 {
 	public void CalcularSalarioBrutoExceptioNegativoHoras() throws Exception {	
 		assertThrows(Exception.class,()->{ obj.calculaSalarioBruto(TipoEmpleado.Encargado, 1500, -1);});
 	}
+	@Test
+	public void CalcularSalarioBrutoExceptioTipoEmpleadoNull() throws Exception {	
+		assertThrows(Exception.class,()->{ obj.calculaSalarioBruto(null, 1500, 8);});
+	}
+	@Test
+	public void CalcularSalarioNeto1640() throws Exception {	
+		assertTrue(1640==obj.calculaSalarioNeto(2000));
+	}
+	@Test
+	public void CalcularSalarioNeto1230() throws Exception {	
+		assertTrue(1230==obj.calculaSalarioNeto(1500));
+	}
+	@Test
+	public void CalcularSalarioNeto1259_9916() throws Exception {	
+		assertTrue(1259.9916f==obj.calculaSalarioNeto(1499.99f));
+	}
+	@Test
+	public void CalcularSalarioNeto1050() throws Exception {	
+		assertTrue(1050==obj.calculaSalarioNeto(1250));
+	}
+	@Test
+	public void CalcularSalarioNeto840() throws Exception {	
+		assertTrue(840f==obj.calculaSalarioNeto(1000));
+	}
+	@Test
+	public void CalcularSalarioNeto999_99() throws Exception {	
+		assertTrue(999.99f==obj.calculaSalarioNeto(999.99f));
+	}
+	@Test
+	public void CalcularSalarioNeto500() throws Exception {	
+		assertTrue(500==obj.calculaSalarioNeto(500));
+	}
+	@Test
+	public void CalcularSalarioNeto0() throws Exception {	
+		assertTrue(0==obj.calculaSalarioNeto(0));
+	}
+	@Test
+	public void CalcularSalarioNetoNegativo() throws Exception {	
+		assertThrows(Exception.class,()->{ obj.calculaSalarioNeto(-1);});
+	}
+	
 	
 
 }
